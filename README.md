@@ -18,16 +18,16 @@ calculating all taxes and totals correctly. When calculating prices plus tax, ro
 cents. For example, if a taxable item costs $5.60, an exact 10% tax would be $0.56, and the final price after adding
 the rounded tax of $0.60 should be $6.20.
 <br /><br />
-Here is a screenshot of the output for testcase1:<br />
+Here is a screenshot of the output for testcase1:<br /><br />
 <center>
 <a href="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output1.PNG" target="_blank"><img src="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output1.PNG" border="0" alt="Screenshot for test input1 and output1" width="800px"/><br />(click to enlarge)</a>
  <br /><br /></center>
- Here is a screenshot of the output for testcase2:<br />
+ Here is a screenshot of the output for testcase2:<br /><br />
 <center>
 <a href="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output2.PNG" target="_blank"><img src="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output2.PNG" border="0" alt="Screenshot for test input2 and output2" width="800px"/><br />(click to enlarge)</a>
  <br /><br /></center>
  
- Here is a screenshot of the output fortestcase3:<br />
+ Here is a screenshot of the output for testcase3:<br /><br />
 <center>
 <a href="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output3.PNG" target="_blank"><img src="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output3.PNG" border="0" alt="Screenshot for test input3 and output3" width="800px"/><br />(click to enlarge)</a>
  <br /><br /></center>
