@@ -14,7 +14,7 @@ namespace SalesTaxApp
     /// Product objects and provides the business logic updating total tax and 
     /// total price
     /// </summary>
-    class Product : INotifyPropertyChanged
+    public class Product : INotifyPropertyChanged
     {
         // Class Instance Variables for Object Data
         private string description; 

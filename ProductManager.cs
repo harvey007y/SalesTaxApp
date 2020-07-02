@@ -15,7 +15,7 @@ namespace SalesTaxApp
     /// holds an list of Product objects and each object holds its own data and
     /// applicable methods. 
     /// </summary>
-    class ProductManager
+    public class ProductManager
     {
         // Main List to hold products for the application
         public ObservableCollection<Product> productList; 
