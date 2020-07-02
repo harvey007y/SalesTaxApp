@@ -1,5 +1,5 @@
 # SaleTaxApp
-<p align="center"><strong>Demonstrates using WPF Datagrid to calculate Sales Tax</strong></p> 
+<p align="center"><strong>Demonstrates using WPF Datagrid to Calculate Sales Tax</strong></p> 
 <br /><br />
 <strong>The application demonstrates adding new rows, updating rows, and deleting them. It also uses validation to check input into the datagrid cells. Finally, it allows one to print the data grid along with the total sum of taxes and item prices. Unit tests are used to demonstrate that application meets acceptance criteria.</strong>
 <br /><br />
