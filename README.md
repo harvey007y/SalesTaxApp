@@ -1,7 +1,7 @@
 # SaleTaxApp
 <p align="center"><strong>Demonstrates using WPF Datagrid to calculate Sales Tax</strong></p> 
 <br /><br />
-<strong>The application demonstrates adding new rows, updating rows, and deleting them. It also uses validation to check input into the datagrid cells. Finally, it allows one to print the data grid along with the total sum of taxes and item prices. Unit tests are used to demonstrate that application meets acceptance criteria</strong>
+<strong>The application demonstrates adding new rows, updating rows, and deleting them. It also uses validation to check input into the datagrid cells. Finally, it allows one to print the data grid along with the total sum of taxes and item prices. Unit tests are used to demonstrate that application meets acceptance criteria.</strong>
 <br /><br />
 Here are the requirements:
 <br /><br />
@@ -17,6 +17,7 @@ Write an application that takes input for shopping baskets and returns receipts 
 calculating all taxes and totals correctly. When calculating prices plus tax, round the total up to the nearest 5
 cents. For example, if a taxable item costs $5.60, an exact 10% tax would be $0.56, and the final price after adding
 the rounded tax of $0.60 should be $6.20.
+<br /><br />
 Here is a screenshot of the output for testcase1:<br />
 <center>
 <a href="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output1.PNG" target="_blank"><img src="https://github.com/harvey007y/SalesTaxApp/blob/master/Images/Output1.PNG" border="0" alt="Screenshot for test input1 and output1" width="800px"/><br />(click to enlarge)</a>
