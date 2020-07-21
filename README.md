@@ -3,6 +3,8 @@
 <br /><br />
 <strong>The application demonstrates adding new rows, updating rows, and deleting them. It also uses validation to check input into the datagrid cells. Finally, it allows one to print the data grid along with the total sum of taxes and item prices. Unit tests are used to demonstrate that application meets acceptance criteria.</strong>
 <br /><br />
+Before running the program for the first time, you need to run CreateSalesTaxProductsTable.sql in Sql Server Management Studio to create the table. You will also need to update the connection strings in ProductManager.cs
+<br/><br/>
 Here are the requirements:
 <br /><br />
 There are a variety of items for sale at a store. When a customer purchases items, they receive a receipt. The
