@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
@@ -22,16 +23,31 @@ namespace SalesTaxApp
     public partial class MainWindow : Window
     {
         ProductManager productManager = new ProductManager();
+        
         public MainWindow()
         {
+            
             InitializeComponent();
+            //if (MyObjectDataProvider != null) MyObjectDataProvider.ObjectInstance = productManager;
+
+            //this.DataContext = MyObjectDataProvider;
+            productManager.productList = productManager.GetProducts();
             dataGrid.ItemsSource = productManager.productList;
             lblSumTax.Content = "Sum of Tax = $0.00";
             lblSumTotalPrice.Content = "Sum of Total Price = $0.00";
         }
 
+        private ObjectDataProvider MyObjectDataProvider
+        {
+            get
+            {
+                return this.TryFindResource("EmployeeData") as ObjectDataProvider;
+            }
+        }
+
         private void dataGrid_SourceUpdated(object sender, DataTransferEventArgs e)
         {
+            productManager.Upsert((Product)((DataGrid)sender).CurrentItem);
             updateGrandTotals();
         }
 
@@ -64,6 +80,8 @@ namespace SalesTaxApp
             {
                 return;
             }
+            Product myProduct = (Product)((DataGrid)sender).CurrentItem;
+            productManager.Delete(myProduct.Id);
             updateGrandTotals();
         }
     }

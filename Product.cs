@@ -46,6 +46,7 @@ namespace SalesTaxApp
         }
 
         // Property to Get/Set the Description
+        public int Id { get; set; }
         public string Description
         {
             get

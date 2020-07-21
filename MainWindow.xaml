@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:SalesTaxApp"       
         mc:Ignorable="d"
         Title="Sales Tax" SizeToContent="Width" MinHeight="600px">
-    <Window.Resources>
-
+    <Window.Resources>      
+       
         <!-- TextBox style which displays validation errors as a tooltip -->
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>
@@ -105,9 +105,10 @@
 
     </Window.Resources>
     <Grid>
-        <ScrollViewer  VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="stackPanelPrintArea">
-                <dg:DataGrid x:Name="dataGrid" Margin="0,24,0,0" 
+        <DockPanel>
+            <ScrollViewer  VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto">
+                <StackPanel x:Name="stackPanelPrintArea">
+                    <dg:DataGrid x:Name="dataGrid" Margin="0,24,0,0" 
                              ColumnHeaderStyle="{StaticResource HeaderStyle}"
                              AlternationCount="2"
                              RowStyle="{StaticResource RowStyleWithAlternation}"
@@ -117,88 +118,89 @@
                              UnloadingRow="dataGrid_UnloadingRow"      
                              SourceUpdated="dataGrid_SourceUpdated" ItemsSource="{Binding}">
 
-                    <dg:DataGrid.Columns>
-                        <dg:DataGridTextColumn Binding="{Binding Description, ValidatesOnExceptions=True}" Header="Description" Width="175" EditingElementStyle="{StaticResource CellEditStyle}"  />
-                        <dg:DataGridTextColumn Binding="{Binding Price, StringFormat=C2, ValidatesOnExceptions=True}" Header="Price" Width="70"  EditingElementStyle="{StaticResource CellEditStyle}" />
-                        <dg:DataGridTextColumn Binding="{Binding Quantity,Mode=TwoWay, UpdateSourceTrigger=LostFocus,NotifyOnSourceUpdated=True, ValidatesOnExceptions=True}" Header="Quantity" Width="70" EditingElementStyle="{StaticResource CellEditStyle}"  />
-                        <dg:DataGridTemplateColumn Header="IsBook"  Width="70">
-                            <dg:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsBook,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
-                                </DataTemplate>
-                            </dg:DataGridTemplateColumn.CellTemplate>
-                        </dg:DataGridTemplateColumn>
+                        <dg:DataGrid.Columns>
+                            <dg:DataGridTextColumn Binding="{Binding Description, ValidatesOnExceptions=True}" Header="Description" Width="175" EditingElementStyle="{StaticResource CellEditStyle}"  />
+                            <dg:DataGridTextColumn Binding="{Binding Price, StringFormat=C2, ValidatesOnExceptions=True}" Header="Price" Width="70"  EditingElementStyle="{StaticResource CellEditStyle}" />
+                            <dg:DataGridTextColumn Binding="{Binding Quantity,Mode=TwoWay, UpdateSourceTrigger=LostFocus,NotifyOnSourceUpdated=True, ValidatesOnExceptions=True}" Header="Quantity" Width="70" EditingElementStyle="{StaticResource CellEditStyle}"  />
+                            <dg:DataGridTemplateColumn Header="IsBook"  Width="70">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsBook,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                            </dg:DataGridTemplateColumn>
 
-                        <dg:DataGridTemplateColumn Header="IsFood"  Width="70">
-                            <dg:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsFood,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
-                                </DataTemplate>
-                            </dg:DataGridTemplateColumn.CellTemplate>
-                        </dg:DataGridTemplateColumn>
+                            <dg:DataGridTemplateColumn Header="IsFood"  Width="70">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsFood,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                            </dg:DataGridTemplateColumn>
 
-                        <dg:DataGridTemplateColumn Header="IsMedical" Width="70">
-                            <dg:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsMedical,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
-                                </DataTemplate>
-                            </dg:DataGridTemplateColumn.CellTemplate>
-                        </dg:DataGridTemplateColumn>
+                            <dg:DataGridTemplateColumn Header="IsMedical" Width="70">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsMedical,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                            </dg:DataGridTemplateColumn>
 
-                        <dg:DataGridTemplateColumn Header="IsImported" Width="70">
-                            <dg:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsImported,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
-                                </DataTemplate>
-                            </dg:DataGridTemplateColumn.CellTemplate>
-                        </dg:DataGridTemplateColumn>
+                            <dg:DataGridTemplateColumn Header="IsImported" Width="70">
+                                <dg:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsImported,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True}" HorizontalAlignment="Center"  />
+                                    </DataTemplate>
+                                </dg:DataGridTemplateColumn.CellTemplate>
+                            </dg:DataGridTemplateColumn>
 
-                        <dg:DataGridTextColumn Binding="{Binding BasePrice,  StringFormat=C2}" Header="Base Price" Width="70" IsReadOnly="True">
-                            <dg:DataGridTextColumn.CellStyle>
-                                <Style TargetType="dg:DataGridCell">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
-                                            <Setter Property="IsTabStop" Value="False"></Setter>
-                                            <Setter Property="Focusable" Value="False"></Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </dg:DataGridTextColumn.CellStyle>
-                        </dg:DataGridTextColumn>
-                        <dg:DataGridTextColumn Binding="{Binding Tax,  StringFormat=C2,NotifyOnSourceUpdated=True}" Header="Tax" Width="70" IsReadOnly="True">
-                            <dg:DataGridTextColumn.CellStyle>
-                                <Style TargetType="dg:DataGridCell">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
-                                            <Setter Property="IsTabStop" Value="False"></Setter>
-                                            <Setter Property="Focusable" Value="False"></Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </dg:DataGridTextColumn.CellStyle>
-                        </dg:DataGridTextColumn>
-                        <dg:DataGridTextColumn Binding="{Binding TotalPrice, StringFormat=C2}" Header="TotalPrice" Width="70" IsReadOnly="True">
-                            <dg:DataGridTextColumn.CellStyle>
-                                <Style TargetType="dg:DataGridCell">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
-                                            <Setter Property="IsTabStop" Value="False"></Setter>
-                                            <Setter Property="Focusable" Value="False"></Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </dg:DataGridTextColumn.CellStyle>
-                        </dg:DataGridTextColumn>
-                    </dg:DataGrid.Columns>
+                            <dg:DataGridTextColumn Binding="{Binding BasePrice,  StringFormat=C2}" Header="Base Price" Width="70" IsReadOnly="True">
+                                <dg:DataGridTextColumn.CellStyle>
+                                    <Style TargetType="dg:DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
+                                                <Setter Property="IsTabStop" Value="False"></Setter>
+                                                <Setter Property="Focusable" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </dg:DataGridTextColumn.CellStyle>
+                            </dg:DataGridTextColumn>
+                            <dg:DataGridTextColumn Binding="{Binding Tax,  StringFormat=C2,NotifyOnSourceUpdated=True}" Header="Tax" Width="70" IsReadOnly="True">
+                                <dg:DataGridTextColumn.CellStyle>
+                                    <Style TargetType="dg:DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
+                                                <Setter Property="IsTabStop" Value="False"></Setter>
+                                                <Setter Property="Focusable" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </dg:DataGridTextColumn.CellStyle>
+                            </dg:DataGridTextColumn>
+                            <dg:DataGridTextColumn Binding="{Binding TotalPrice, StringFormat=C2}" Header="TotalPrice" Width="70" IsReadOnly="True">
+                                <dg:DataGridTextColumn.CellStyle>
+                                    <Style TargetType="dg:DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=ReadOnly}" Value="True">
+                                                <Setter Property="IsTabStop" Value="False"></Setter>
+                                                <Setter Property="Focusable" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </dg:DataGridTextColumn.CellStyle>
+                            </dg:DataGridTextColumn>
+                        </dg:DataGrid.Columns>
 
 
-                </dg:DataGrid>
-                <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
-                    <Label x:Name="lblSumTax" FontWeight="Bold" />
-                    <Label x:Name="lblSumTotalPrice" FontWeight="Bold" />
+                    </dg:DataGrid>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+                        <Label x:Name="lblSumTax" FontWeight="Bold" />
+                        <Label x:Name="lblSumTotalPrice" FontWeight="Bold" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
+            </ScrollViewer>
+        </DockPanel>
         <Button x:Name="btnPrint"   Content="Print Receipt" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" Click="btnPrint_Click" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush  StartPoint="0.5,0" EndPoint="0.5,1">

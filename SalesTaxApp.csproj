@@ -118,5 +118,9 @@
   <ItemGroup>
     <Resource Include="tax-icon-15116-Windows.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="CreateSalesTaxProductsTable.sql" />
+    <Resource Include="ReadMe.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
